@@ -1,0 +1,11 @@
+<div class="col-8 border rounded">
+  <%= form_with model: @article do |form| %>
+    <%= form.select :category, [ ["История", "HS"], ["Альтернативная история", "AH"], ["Аналитика", "AN"] ], class: "form-check form-check-input form-check-label" %>
+
+    <%= form.text_field :title, placeholder: "Название статьи", class: "form-control mb-3 mt-3" %>
+
+    <%= form.rich_text_area :content, class: "mb-3 mt-3 trix-content" %>
+
+    <%= form.submit "Сохранить изменения", class: "btn btn-success btn-lg" %>
+  <% end %>
+</div>

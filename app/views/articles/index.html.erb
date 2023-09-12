@@ -1,0 +1,45 @@
+<div class="row mt-3 justify-content-center flex-nowrap">
+  <div class="col-6 border rounded">
+    <div class="mb-3 mt-3">
+      <%= form_with url: "/", method: :get do |form| %>
+        <%= form.select :tag, [ ["История", "HS"], ["Все", "AL"], ["Альтернативная история", "AH"], ["Аналитика", "AN"], ["Любимые авторы", "FA"] ]  %>
+
+        <%= form.select :time, [ ["День", "D"], ["Неделя", "W"], ["Месяц", "M"], ["Год", "Y"], ["За всё время", "A"] ] %>
+
+        <%= form.select :sort, [ ["Популярные", "L"], ["Обсуждаемые", "C"], ["Непопулярные", "LR"], ["Необсуждаемые", "CR"] ] %>
+
+        <%= form.submit "Отсортировать" %>
+      <% end %>
+    </div>
+
+    <% @articles.each do |article| %>
+      <article class="card mt-3 mb-3">
+        <div class="card-body">
+          <span class="fs-2 fw-bold"><%= link_to article.title, "/articles/#{article.id}" %></span>
+
+          <section class="card-text">
+            <p class="my-2">
+              <%= article.content.to_plain_text.truncate(200) %>
+            </p>
+          </section>
+
+          <div class="mb-2">
+            <% article_creator = User.find_by id: article.user_id %>
+            <% if article_creator.username.nil? %>
+              <%= article_creator.email.split("@").first %>
+            <% else %>
+              <%= article_creator.username %>
+            <% end %>
+          </div>
+
+          <% if user_signed_in? && article_creator.id == current_user.id%>
+            <%= link_to "Редактировать", "/articles/#{article.id}/edit", class: "btn btn-sm btn-primary" %>
+          <% end %>
+        </div>
+      </article>
+    <% end %>
+  </div>
+  <div class="col-2 border rounded">
+    <%= render "layouts/sidebar" %>
+  </div>
+</div>

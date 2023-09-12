@@ -1,0 +1,19 @@
+<div class="mt-3"> Обсуждаемое за неделю:
+  <% @best_articles.each do |article| %>
+    <article class="card mt-3 mb-3">
+      <div class="card-body">
+        <span class="fw-bold"><%= link_to article.title, "/articles/#{article.id}" %></span>
+      </div>
+    </article>
+  <% end %>
+</div>
+
+<div> Самые популярные комментарии за неделю:
+  <% @best_comments.each do |comment| %>
+    <article class="card mt-3 mb-3">
+      <div class="card-body">
+        <%=link_to comment.content.to_plain_text.truncate(30), article_comment_path %>
+      </div>
+    </article>
+  <% end %>
+</div>

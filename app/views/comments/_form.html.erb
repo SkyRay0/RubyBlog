@@ -1,0 +1,7 @@
+<div class="col-8 border rounded">
+  <%= form_with model: @comment do |form| %>
+    <%= form.rich_text_area :content, class: "mb-3 mt-3 trix-content" %>
+
+    <%= form.submit "Сохранить изменения", class: "btn btn-success btn-lg" %>
+  <% end %>
+</div>

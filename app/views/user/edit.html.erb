@@ -1,0 +1,30 @@
+<div class="row mt-3 justify-content-center flex-nowrap">
+  <div class="col-8 border rounded">
+    <%= form_with model: @user do |form| %>
+      <div class="mt-3 mb-3">
+        <%= form.label :avatar %>
+        <%= form.file_field :avatar %>
+      </div>
+      <div class="mt-3 mb-3">
+        <% if @user.username.nil? %>
+          <%= form.text_field :username, placeholder: @user.email.split("@").first %>
+        <% else %>
+          <%= form.text_field :username, placeholder: @user.username %>
+        <% end %>
+      </div>
+
+      <div class="mb-3">
+        <% if @user.description.nil? %>
+          <%= form.text_area :description, placeholder: "Расскажите о себе", class: "form-control" %>
+        <% else %>
+          <%= form.text_area :description, placeholder: @user.description, class: "form-control" %>
+        <% end %>
+      </div>
+
+      <div class="text-center mb-3">
+        <%= form.submit "Сохранить изменения", class: "btn btn-success btn-lg" %>
+      </div>
+
+    <% end %>
+  </div>
+</div>
