@@ -97,8 +97,6 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.12.0)
-    faker (3.2.1)
-      i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
     globalid (1.2.1)
       activesupport (>= 6.1)
@@ -245,12 +243,10 @@ DEPENDENCIES
   cssbundling-rails
   debug
   devise
-  faker
-  image_processing (~> 1.2)
+  image_processing
   jbuilder
   jsbundling-rails
   mysql2 (~> 0.5)
-  nokogiri
   puma (~> 5.0)
   rails (~> 7.0.8)
   rails-ujs

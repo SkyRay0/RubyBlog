@@ -27,7 +27,28 @@
     </div>
   </div>
 </nav>
-<%= image_tag "gorshkov.png", class: "mx-auto d-flex p-2 bd-highlight rounded" %>
+<% pic_number = rand(8) %>
+<% case pic_number %>
+<% when 1 %>
+  <%= image_tag "gorshkov.png", class: "mx-auto d-flex p-2 bd-highlight rounded" %>
+<% when 2 %>
+  <%= image_tag "1959_Ленин.jpg", class: "mx-auto d-flex p-2 bd-highlight rounded" %>
+<% when 3 %>
+  <%= image_tag "2023-09-10_17-00-57.png", class: "mx-auto d-flex p-2 bd-highlight rounded" %>
+<% when 4 %>
+  <%= image_tag "4036.jpg", class: "mx-auto d-flex p-2 bd-highlight rounded" %>
+<% when 5 %>
+  <%= image_tag "00088046.jpg", class: "mx-auto d-flex p-2 bd-highlight rounded" %>
+<% when 6 %>
+  <%= image_tag "iowa.png", class: "mx-auto d-flex p-2 bd-highlight rounded" %>
+<% when 7 %>
+  <%= image_tag "ri.jpg", class: "mx-auto d-flex p-2 bd-highlight rounded" %>
+<% when 8 %>
+  <%= image_tag "scale_1200 (1).jpg", class: "mx-auto d-flex p-2 bd-highlight rounded" %>
+<% else %>
+  <%= image_tag "конт.jpg", class: "mx-auto d-flex p-2 bd-highlight rounded" %>
+<% end %>
+
 <nav class="navbar navbar-dark bg-primary justify-content-center">
   <a class="nav-link link-light active me-3 fw-bold" href="/?tag=HS">История</a>
   <a class="nav-link link-light active me-3 fw-bold" href="/">Главная</a>

@@ -12,11 +12,16 @@
     </div>
 
     <div>
-    <% begin %>
-        <%= image_tag @user.avatar, width: 200, height: 200, class: "rounded-circle me-4" %>
-    <% rescue %>
-        <%= image_tag "placeholder.jpg", width: 200, height: 200, class: "rounded-circle me-4" %>
+    <% if @user.avatar.nil? %>
+      <%= image_tag "placeholder.jpg", width: 200, height: 200, class: "rounded-circle me-4" %>
+    <% else %>
+      <%= image_tag @user.avatar, width: 200, height: 200, class: "rounded-circle me-4" %>
     <% end %>
+    <% #begin %>
+        <% # image_tag @user.avatar, width: 200, height: 200, class: "rounded-circle me-4" %>
+    <% # rescue %>
+        <% # image_tag "placeholder.jpg", width: 200, height: 200, class: "rounded-circle me-4" %>
+    <% # end %>
       <span class="fs-1 fw-bold">
         <% if @user.username.nil? %>
           <%= current_user.email.split("@").first %>
